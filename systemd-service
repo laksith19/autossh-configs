@@ -1,0 +1,12 @@
+[Unit]
+Description=AutoSSH tunnel to give remote ssh access
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -N ssh-tunnel
+
+[Install]
+WantedBy=multi-user.target
